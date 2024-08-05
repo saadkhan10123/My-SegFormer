@@ -87,10 +87,10 @@ class SlidingWindowDataset(Dataset):
         if self.reduce_indices:
             mask = mask - 1
             mask[mask == -1] = 255
-
+            
         encoded_data = {
-            "pixel_values": image,
-            "labels": mask,
+            'pixel_values': image,
+            'labels': mask
         }
 
         return encoded_data

@@ -232,7 +232,7 @@ class MySegFormer(nn.Module):
         }, filepath)
 
     def load_pretrained(self, filepath):
-        checkpoint = torch.load(filepath)
+        checkpoint = torch.load(filepath, map_location=device)
         self.config = checkpoint["config"]
         self.encoder.load_state_dict(checkpoint["encoder_state_dict"])
         self.decode_head.load_state_dict(checkpoint["decoder_state_dict"])

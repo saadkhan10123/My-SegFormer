@@ -103,7 +103,7 @@ def image_processor(image, label = None):
         }
 
 class MySegFormer(nn.Module):
-    def __init__(self, config, optimizer = None):
+    def __init__(self, config, optimizer = None, lr_scheduler = None):
         super(MySegFormer, self).__init__()
         self.config = config
         self.encoder = SegformerModel(config)
@@ -113,6 +113,10 @@ class MySegFormer(nn.Module):
             self.optimizer = torch.optim.Adam(self.parameters(), lr = 1e-4)
         else:
             self.optimizer = optimizer
+        if lr_scheduler is not None:
+            self.lr_scheduler = lr_scheduler
+        else:
+            self.lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer, mode = "min", factor = 0.5, patience = 5)
 
     def forward(self, input, service = "train"):
         input = {k: v.to(self.encoder.device) for k, v in input.items()}
@@ -221,8 +225,9 @@ class MySegFormer(nn.Module):
                             mean_accuracy=f"{metrics['mean_accuracy'] / total:.4f}"
                 )
 
-    def on_epoch_end(self, epoch):
+    def on_epoch_end(self, epoch, val_loss = None):
         self.save(f"model/model_epoch_{epoch}")
+
 
     def save(self, filepath):
         torch.save({

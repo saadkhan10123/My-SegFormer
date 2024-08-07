@@ -16,7 +16,7 @@
         "args": {
             "data_dir": "data/train/training_2015_pickled_data",
             "data_split_lists_path": "data/train/temp_split",
-            "batch_size": 4,
+            "batch_size": 8,
             "model_input_size": 128,
             "bands": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
             "num_classes": 2,
@@ -38,11 +38,11 @@
     "optimizer": {
         "type": "RMSprop",
         "args":{
-            "lr": 1e-6,
+            "lr": 1e-10,
             "weight_decay": 0
         }
     },
-    "loss": "focal_loss2d",
+    "loss": "cross_entropy",
     "metrics": [
         "accuracy"
     ],

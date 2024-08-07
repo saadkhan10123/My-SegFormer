@@ -1,4 +1,4 @@
-2024-08-06 12:23:33,335 - train - INFO - CustomSegformer(
+2024-08-06 16:34:09,867 - train - INFO - CustomSegformer(
   (encoder): SegformerModel(
     (encoder): SegformerEncoder(
       (patch_embeddings): ModuleList(
@@ -280,19 +280,3 @@
   )
   (softmax): Softmax(dim=1)
 )
-2024-08-06 16:29:29,158 - trainer - INFO -     epoch          : 1
-2024-08-06 16:29:29,159 - trainer - INFO -     loss           : 0.13881612703425147
-2024-08-06 16:29:29,160 - trainer - INFO -     accuracy       : 0.7407887450719284
-2024-08-06 16:29:29,160 - trainer - INFO -     val_loss       : 0.12751227244734764
-2024-08-06 16:29:29,161 - trainer - INFO -     val_accuracy   : 0.8092788696289063
-2024-08-06 16:29:29,162 - trainer - INFO -     val_classification_report: 
-              precision    recall  f1-score   support
-
-  Non-Forest       0.76      0.98      0.85    343715
-      Forest       0.61      0.10      0.16    118908
-
-    accuracy                           0.75    462623
-   macro avg       0.68      0.54      0.51    462623
-weighted avg       0.72      0.75      0.68    462623
-
-2024-08-06 16:29:29,309 - trainer - INFO - Saving checkpoint: saved\models\Landsat8_UNet\0806_122332\checkpoint-epoch1.pth ...

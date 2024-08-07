@@ -42,7 +42,7 @@
             "weight_decay": 0
         }
     },
-    "loss": "cross_entropy",
+    "loss": "focal_loss2d",
     "metrics": [
         "accuracy"
     ],

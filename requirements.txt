@@ -1,0 +1,7 @@
+torch
+torchvision
+torchsummary
+torchviz
+imgaug
+transformers
+sk-learn
